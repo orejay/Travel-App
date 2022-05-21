@@ -1,0 +1,95 @@
+#app {
+    grid-area: app;
+    display: grid;
+    grid-template-areas: 
+    "body saved";
+    grid-template-columns: 55% 45%;
+    grid-template-rows: 100%;
+    background-color: whitesmoke;
+    border-radius: 0px 0px 20px 20px;
+}
+
+#body {
+    grid-area: body;
+    display: grid;
+    grid-template-areas: 
+    "form"
+    "result";
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 80%;
+    width: 95%;
+    height: 100%;
+    justify-self: center;
+    align-self: center;
+}
+
+#entry-bx {
+    grid-area: form;
+    width: 100%;
+    height: 95%;
+    display: flex;
+    background-color: white;
+    border-radius: 20px;
+    justify-self: unset;
+    justify-content: center;
+}
+
+#entry {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.fields {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    border: none;
+    width: 80%;
+    margin-top: 1em;
+    border-bottom: 1px solid #26aae1;
+
+}
+
+.input:focus {
+    outline: none;
+}
+
+#destination {
+    width: 100%;
+}
+
+#sub-btn {
+    border: none;
+    height: 3.5em;
+    width: 7em;
+    background-color: #26aae1;
+    border-radius: 7px;
+    color: white;
+}
+
+#sub-btn:hover {
+    background-color: #26eea1;
+    cursor: pointer;
+}
+
+#result {
+    grid-area: result;
+    background-color:  white;
+    border-radius: 20px;
+    height: 97%;
+}
+
+#saved {
+    grid-area: saved;
+    display: flex;
+    background-color: white;
+    width: 97%;
+    height: auto;
+    border-radius: 20px;
+    justify-self: unset;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel App</title>
+</head>
+<body>
+    <header>
+        <h1>TRAVEL APP</h1>
+    </header>
+    <div id="app">
+        <section id="body">
+            <div id="entry-bx">
+                <form id="entry">
+                    <div class="fields">
+                        <label for="destination">Destination</label>
+                        <input type="text" name="destination" id="destination" placeholder="Destination..." class="input">
+                    </div>
+                    <div class="fields">
+                        <label for="date">Date</label>
+                        <input type="date" name="date" id="date" onfocus="(this.type='date')" placeholder="Date" class="input">
+                    </div>
+                    <input type="submit" value="submit" id="sub-btn">
+                </form>
+            </div>
+            <div id="result">
+                
+            </div>
+        </section>
+        <section id="saved">
+            <div id="svd-div">
+                
+            </div>
+        </section>
+    </div>    
+    <footer>
+        FOOTER
+    </footer>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js').then(registration => {
+                    console.log('SW registered: ', registration);
+                }).catch(registrationError => {
+                    console.log('SW registration failed: ', registrationError);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
