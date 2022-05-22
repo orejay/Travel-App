@@ -1,4 +1,19 @@
 header {
     grid-area: head;
+    display: flex;
+    background-color: black;
     background-color: whitesmoke;
+    color: whitesmoke;
+    text-align: center;
+}
+
+#head {
+    height: 100%;
+    display: flex;
+    font-family: "Abril Fatface",
+            sans-serif;
+    font-size: 2.5em;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
 }

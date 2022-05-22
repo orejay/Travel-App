@@ -6,7 +6,8 @@
     grid-template-columns: 55% 45%;
     grid-template-rows: 100%;
     background-color: whitesmoke;
-    border-radius: 0px 0px 20px 20px;
+    padding: 1em;
+    border-radius: 20px 20px 20px 20px;
 }
 
 #body {
@@ -45,6 +46,8 @@
     width: 30%;
     display: flex;
     flex-direction: column;
+    font-family: 'Playfair Display', serif;
+    font-weight: bolder;
 }
 
 .input {
@@ -52,7 +55,8 @@
     width: 80%;
     margin-top: 1em;
     border-bottom: 1px solid #26aae1;
-
+    font-family: 'Playfair Display', serif;
+    font-size: 1em;
 }
 
 .input:focus {
@@ -70,6 +74,8 @@
     background-color: #26aae1;
     border-radius: 7px;
     color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 1em;
 }
 
 #sub-btn:hover {
@@ -77,11 +83,50 @@
     cursor: pointer;
 }
 
-#result {
+#pre-result {
     grid-area: result;
+    display: flex;
     background-color:  white;
     border-radius: 20px;
     height: 97%;
+    background-image: url('https://cdn.pixabay.com/photo/2020/05/25/17/03/travel-5219496__340.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#result {
+    width: 70%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba($color: #111, $alpha: 0.5);
+    border-radius: 20px;
+    border: 3px solid whitesmoke;
+}
+
+#details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    text-align: center;
+    color: wheat;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+
+#details p {
+    max-width: 95%;
+}
+
+#weather {
+    text-align: center;
+    color: wheat;
 }
 
 #saved {

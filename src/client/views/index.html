@@ -5,28 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300&family=Lato&family=Montserrat:wght@400;500&family=PT+Sans&family=Tangerine:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300&family=Lato&family=Montserrat:wght@400;500&family=PT+Sans&family=Tangerine:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>TRAVEL APP</h1>
+        <div id="head">
+            <h1>TRAVEL APP</h1>
+        </div>
     </header>
     <div id="app">
         <section id="body">
             <div id="entry-bx">
                 <form id="entry">
                     <div class="fields">
-                        <label for="destination">Destination</label>
+                        <label for="destination">DESTINATION</label>
                         <input type="text" name="destination" id="destination" placeholder="Destination..." class="input">
                     </div>
                     <div class="fields">
-                        <label for="date">Date</label>
+                        <label for="date">DATE</label>
                         <input type="date" name="date" id="date" onfocus="(this.type='date')" placeholder="Date" class="input">
                     </div>
-                    <input type="submit" value="submit" id="sub-btn">
+                    <input type="submit" value="Submit" id="sub-btn">
                 </form>
             </div>
-            <div id="result">
-                
+            <div id="pre-result">
+                <div id="result">
+                    <div id="details">
+                        <p>
+                            Your trip to Ajegunle on date.tostring() is 124 days away.
+                            The typical weather for then is
+                        </p>
+                    </div>
+                    <div id="weather">
+                        guegqwhdgauscvqoigfoqbevad
+                    </div>
+                </div>                
             </div>
         </section>
         <section id="saved">
