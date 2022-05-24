@@ -8,9 +8,10 @@ function submission (event) {
     let userDate = document.getElementById('date').value
     if (destination && userDate) {
         console.log("::: Form Submitted :::")
-        const todaysDate = new Date().getTime
-        const tripDate = new Date(userDate).getTime
+        const todaysDate = new Date().getTime()
+        const tripDate = new Date(userDate).getTime()
         const days = Math.floor((tripDate - todaysDate)/86400000)
+        console.log(days)
         postData('http://localhost:8080/check', {destination: destination, days: days})
         .then((resultData) =>{
                         updateUi(resultData)

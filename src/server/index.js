@@ -41,37 +41,43 @@ app.post('/check', async function(req, res) {
     const wthrbitUrl = `${wthrbit}lat=${lat}&lon=${lng}&key=${wthrbitKey}`
     const wthrbitData = await fetch(wthrbitUrl)
     const weatherData = await wthrbitData.json()
-    .then((weatherData) => {
+    getWeather(weatherData)
+    function getWeather(x) {
         if (days <= 15 && days >= 0) {
-        const highTemp = weatherData.data[days].high_temp
-        const lowTemp = weatherData.data[days].low_temp
-        const icon = weatherData.data[days].weather.icon
-        const description = weatherData.data[days].weather.description
+            const weather = { highTemp: weatherData.data[days].high_temp,
+                lowTemp: weatherData.data[days].low_temp,
+                icon: weatherData.data[days].weather.icon,
+                description: weatherData.data[days].weather.description
+            }
+            return weather
         } else if (days < 0) {
-            const highTemp = weatherData.data[0].high_temp
-            const lowTemp = weatherData.data[0].low_temp
-            const icon = weatherData.data[0].weather.icon
-            const description = weatherData.data[0].weather.description
-        } else {
-            const highTemp = weatherData.data[15].high_temp
-            const lowTemp = weatherData.data[15].low_temp
-            const icon = weatherData.data[15].weather.icon
-            const description = weatherData.data[15].weather.description
+            const weather = { highTemp: weatherData.data[0].high_temp,
+                lowTemp: weatherData.data[0].low_temp,
+                icon: weatherData.data[0].weather.icon,
+                description: weatherData.data[0].weather.description
         }
-        const pxrbayUrl = `${pxrbay}?key=${pxrbayKey}&category=place&q=${destination}&image_type=photo}`
-    })
+            return weather
+        } else {
+            const weather = { highTemp: weatherData.data[15].high_temp,
+                lowTemp: weatherData.data[15].low_temp,
+                icon: weatherData.data[15].weather.icon,
+                description: weatherData.data[15].weather.description
+        }
+            return weather
+        }
+    }
     
+    const pxrbayUrl = `${pxrbay}?key=${pxrbayKey}&category=place&q=${destination}&image_type=photo}`
     const pxrbayData = await fetch(pxrbayUrl)
     const photoData = await pxrbayData.json()
     const image = photoData.hits[0].webformatURL
     
     const resultData = {
-        highTemp: highTemp,
-        lowTemp: lowTemp,
-        icon: icon,
-        description: description,
+        weather: weather,
         image: image 
     }
+    console.log(resultData)
+    return(geonData)
 })
 
 app.listen(8080, function () {
