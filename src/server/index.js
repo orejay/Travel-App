@@ -36,7 +36,6 @@ app.post('/check', async function(req, res) {
     const geonUrl = `${geoUrl}=${destination}&maxRows=10&username=${geoKey}`
     const geoData = await fetch(geonUrl)
     const geonData = await geoData.json()
-    console.log(geonData)
     const lat = geonData.geonames[0].lat
     const lng = geonData.geonames[0].lng
     const wthrbitUrl = `${wthrbit}lat=${lat}&lon=${lng}&key=${wthrbitKey}`
@@ -47,7 +46,6 @@ app.post('/check', async function(req, res) {
         const resultData = {
             weather: weather, 
         }
-        console.log(resultData)
         res.send(resultData)
     })
 })
