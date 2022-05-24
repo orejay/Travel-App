@@ -81,7 +81,6 @@ const updateUi = async (resultData) => {
     high.innerHTML = `<span><span class="temp">${resultData.weather.highTemp}</span> degrees</span>`
     low.innerHTML = `<span><span class="temp">${resultData.weather.lowTemp}</span> degrees</span>`
     image.style.backgroundImage = 'url('+pic+')'
-    console.log(resultData.weather.image)
     result.style.display = 'flex'
 }
 
