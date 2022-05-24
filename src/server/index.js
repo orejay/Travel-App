@@ -32,6 +32,7 @@ app.get('/logo/logo.png', function (req, res) {
 app.post('/check', async function(req, res) {
     let destination = req.body.destination
     let days = req.body.days
+    let date = req.body.date
     const geonUrl = `${geoUrl}=${destination}&maxRows=10&username=${geoKey}`
     const geoData = await fetch(geonUrl)
     const geonData = await geoData.json()
@@ -41,44 +42,64 @@ app.post('/check', async function(req, res) {
     const wthrbitUrl = `${wthrbit}lat=${lat}&lon=${lng}&key=${wthrbitKey}`
     const wthrbitData = await fetch(wthrbitUrl)
     const weatherData = await wthrbitData.json()
-    getWeather(weatherData)
-    function getWeather(x) {
+    getWeather(weatherData, days, pxrbay, pxrbayKey, destination, date)    
+    .then((weather) => {
+        const resultData = {
+            weather: weather, 
+        }
+        console.log(resultData)
+        res.send(resultData)
+    })
+})
+
+const getWeather = async (weatherData, days, pxrbay, pxrbayKey, destination, date) => {
         if (days <= 15 && days >= 0) {
+            const pxrbayUrl = `${pxrbay}?key=${pxrbayKey}&category=place&q=${destination}&image_type=photo}`
+            const pxrbayData = await fetch(pxrbayUrl)
+            const photoData = await pxrbayData.json()
+            const image = photoData.hits[0].webformatURL
             const weather = { highTemp: weatherData.data[days].high_temp,
                 lowTemp: weatherData.data[days].low_temp,
                 icon: weatherData.data[days].weather.icon,
-                description: weatherData.data[days].weather.description
+                description: weatherData.data[days].weather.description,
+                image: image,
+                destination: destination,
+                days: days,
+                date: date
             }
             return weather
         } else if (days < 0) {
+            const pxrbayUrl = `${pxrbay}?key=${pxrbayKey}&category=place&q=${destination}&image_type=photo}`
+            const pxrbayData = await fetch(pxrbayUrl)
+            const photoData = await pxrbayData.json()
+            const image = photoData.hits[0].webformatURL
             const weather = { highTemp: weatherData.data[0].high_temp,
                 lowTemp: weatherData.data[0].low_temp,
                 icon: weatherData.data[0].weather.icon,
-                description: weatherData.data[0].weather.description
-        }
+                description: weatherData.data[0].weather.description,
+                image: image,
+                destination: destination,
+                days: days,
+                date: date
+            }
             return weather
         } else {
+            const pxrbayUrl = `${pxrbay}?key=${pxrbayKey}&category=place&q=${destination}&image_type=photo}`
+            const pxrbayData = await fetch(pxrbayUrl)
+            const photoData = await pxrbayData.json()
+            const image = photoData.hits[0].webformatURL
             const weather = { highTemp: weatherData.data[15].high_temp,
                 lowTemp: weatherData.data[15].low_temp,
                 icon: weatherData.data[15].weather.icon,
-                description: weatherData.data[15].weather.description
-        }
+                description: weatherData.data[15].weather.description,
+                image: image,
+                destination: destination,
+                days: days,
+                date: date
+            }
             return weather
         }
     }
-    
-    const pxrbayUrl = `${pxrbay}?key=${pxrbayKey}&category=place&q=${destination}&image_type=photo}`
-    const pxrbayData = await fetch(pxrbayUrl)
-    const photoData = await pxrbayData.json()
-    const image = photoData.hits[0].webformatURL
-    
-    const resultData = {
-        weather: weather,
-        image: image 
-    }
-    console.log(resultData)
-    return(geonData)
-})
 
 app.listen(8080, function () {
     console.log('Example app listening on port 8080!')
