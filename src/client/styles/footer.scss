@@ -2,3 +2,48 @@ footer {
     grid-area: footer;
     background-color: white;
 }
+
+i {
+    color: black;
+}
+
+i:hover {
+    color: goldenrod;
+    transition: 1.3s ease all;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    font-family: inherit;
+}
+
+.links ul {
+    display: flex;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    width: 25em;
+}
+
+.rights {
+    display: flex;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 1em;
+    font-family: "Abril Fatface",
+        sans-serif;
+    font-weight: 100;
+}
+
+@media(max-width: 425px) {
+    .links {
+        width: 40%;
+    }
+    
+    .links ul {
+            width: 100%;
+        }
+}
