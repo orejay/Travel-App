@@ -7,13 +7,44 @@ header {
     text-align: center;
 }
 
+
 #head {
     height: 100%;
-    display: flex;
+    display: grid;
+    grid-template-areas: "logo title";
+    grid-template-rows: 100%;
+    grid-template-columns: 40% 60%;
     font-family: "Abril Fatface",
             sans-serif;
     font-size: 2.5em;
     background-color: white;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+}
+
+#logo-div {
+    grid-area: logo;
+    display: flex;
+    width: 8em;
+    height: 100%;
+    font-size: 0.4em;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 2em;
+}
+
+#logo {
+    width: 90%;
+}
+
+#title {
+    display: flex;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+#title:hover {
+    cursor: pointer;
+    color: gold;
+    transition: 2s ease-in-out;
 }

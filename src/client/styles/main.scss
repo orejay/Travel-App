@@ -30,7 +30,7 @@
     height: 95%;
     display: flex;
     background-color: white;
-    border-radius: 20px;
+    border-radius: 20px 0px 0px 20px;
     justify-self: unset;
     justify-content: center;
 }
@@ -81,13 +81,16 @@
 #sub-btn:hover {
     background-color: #26eea1;
     cursor: pointer;
+    transition: 0.5s ease all;
+    box-shadow: 1px 1px #26aae1;
+    color: whitesmoke;
 }
 
 #pre-result {
     grid-area: result;
     display: flex;
     background-color:  white;
-    border-radius: 20px;
+    border-radius: 20px 0px 0px 20px;
     height: 97%;
     background-image: url('https://cdn.pixabay.com/photo/2020/05/25/17/03/travel-5219496__340.jpg');
     background-repeat: no-repeat;
@@ -103,7 +106,7 @@
     justify-content: space-around;
     align-items: center;
     background-color: rgba($color: #111, $alpha: 0.5);
-    border-radius: 20px;
+    border-radius: 20px 0px 0px 20px;
     border: 3px solid whitesmoke;
     display: none;
 }
@@ -133,10 +136,11 @@
 
 #forecast {
     display: flex;
-    width: 75%;
+    width: 85%;
     color: wheat;
     font-family: 'Playfair Display', serif;
     font-size: 1em;
+    justify-content: space-evenly;
 }
 
 .temp-hd {
@@ -153,17 +157,97 @@
     line-height: 1.2em;
 }
 
-#icon {
-    margin-left: 1.5em;
-    margin-right: 1.5em;
-}
-
 #saved {
     grid-area: saved;
     display: flex;
-    background-color: white;
     width: 97%;
     height: auto;
     border-radius: 20px;
     justify-self: unset;
+}
+
+#svd-div {
+    display: flex;
+    background-color: white;
+    width: 100%;
+    height:19%;
+    border-radius: 0px 21px 21px 0px;
+    font-family: 'Playfair Display', serif;
+    color: red;
+    text-align: left;
+    padding-left: 0.5em;
+    font-size: 1.2em;
+    line-height: 1.3em;
+}
+
+@media (max-width: 768px) {
+    #app {
+        grid-area: app;
+        display: flex;
+        flex-direction: column;
+        background-color: whitesmoke;
+        border-radius: 20px 20px 20px 20px;
+    }
+
+    #body {
+        width: 100%;
+    }
+
+    #entry-bx {
+        width: 100%;
+        height: 95%;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 20px;
+        justify-self: unset;
+        justify-content: center;
+    }
+
+    #pre-result {
+        grid-area: result;
+        display: flex;
+        background-color: white;
+        height: 60%;
+        background-image: url('https://cdn.pixabay.com/photo/2020/05/25/17/03/travel-5219496__340.jpg');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        justify-content: center;
+        align-items: center;
+        }
+    
+    #result {
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background-color: rgba($color: #111, $alpha: 0.5);
+        border-radius: 20px;
+        border: 3px solid whitesmoke;
+        display: none;
+    }
+}
+
+@media (max-width: 425px) {
+    #app {
+        padding: 0;
+        width: 100vw;
+        border-radius: 0;
+    }
+
+    #entry-bx {
+        border-radius: 0;
+        margin-top: 25%;
+    }
+
+    #pre-result {
+        margin-top: 20%;
+        border-radius: 0;
+    }
+
+    #result {
+        border-radius: 0;
+    }
+
 }

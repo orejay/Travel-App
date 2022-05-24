@@ -25,7 +25,7 @@ app.get('/', function (req, res) {
     res.sendFile(path.resolve('dist/index.html'))
 })
 
-app.get('/logo/logo.png', function (req, res) {
+app.get('/media/logo.png', function (req, res) {
     res.sendFile(path.resolve('./src/client/media/logo.png'))
 })
 

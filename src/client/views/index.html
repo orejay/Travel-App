@@ -20,7 +20,8 @@
 <body>
     <header>
         <div id="head">
-            <h1>TRAVEL APP</h1>
+            <div id="logo-div"><img src="../media/logo.png" alt="logo" id="logo"></div>
+            <div id="title"><h1>TRAVEL APP</h1></div>
         </div>
     </header>
     <div id="app">
@@ -30,10 +31,12 @@
                     <div class="fields">
                         <label for="destination">DESTINATION</label>
                         <input type="text" name="destination" id="destination" placeholder="Destination..." class="input">
+                        <div id="dest-err"></div>
                     </div>
                     <div class="fields">
                         <label for="date">DATE</label>
                         <input type="date" name="date" id="date" onfocus="(this.type='date')" placeholder="Date" class="input">
+                        <div id="date-err"></div>
                     </div>
                     <input type="submit" value="Check" id="sub-btn">
                 </form>
@@ -42,7 +45,7 @@
                 <div id="result">
                     <div id="details">
                         <p>
-                            Your trip to <span id="location"></span> is <span id="distance"></span> away.
+                            Your trip to <span id="location"></span> is <span id="distance"></span>.
                             Expect <span id="weather"></span> on <span id="when"></span>.
                         </p>
                     </div>
@@ -62,7 +65,7 @@
         </section>
         <section id="saved">
             <div id="svd-div">
-                
+                No saved trips now.<br> Please check later.
             </div>
         </section>
     </div>    

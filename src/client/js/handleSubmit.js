@@ -8,6 +8,8 @@ const high = document.getElementById('high')
 const low = document.getElementById('low')
 const image = document.getElementById('pre-result')
 const result = document.getElementById('result')
+const destErr = document.getElementById('dest-err')
+const dateErr = document.getElementById('date-err')
 
 subBtn.addEventListener('click', submission)
 
@@ -27,8 +29,10 @@ function submission (event) {
                         updateUi(resultData)
                     });
     } else if (destination) {
+        dateErr.innerText = 'Please select a date'
         console.log('Please select a date')
     } else if (userDate) {
+        destErr.innerText = 'Please enter your destination'
         console.log('Please enter your destination')
     } else {
         console.log('An error occurred please try again')
@@ -56,6 +60,10 @@ const postData = async(url="", data={}) => {
 
 const updateUi = async (resultData) => {
     console.log(resultData)
+    if (dateErr.innerText || destErr.innerText) {
+        dateErr.innerText = ''
+        destErr.innerText = ''
+    }
     const weatherDesc = resultData.weather.description
     const destination = resultData.weather.destination
     const days = resultData.weather.days
