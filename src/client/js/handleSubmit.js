@@ -42,6 +42,8 @@ function submission (event) {
         destErr.innerText = 'Please enter your destination'
         console.log('Please enter your destination')
     } else {
+        dateErr.innerText = 'Please select a date'
+        destErr.innerText = 'Please enter your destination'
         console.log('An error occurred please try again')
     }
     
