@@ -4,6 +4,7 @@ const fetch = require('node-fetch')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const dotenv = require('dotenv')
+const { mode } = require('../../webpack.dev')
 dotenv.config()
 
 //declaring api credentials
@@ -118,3 +119,5 @@ const getWeather = async (weatherData, days, pxrbay, pxrbayKey, destination, dat
 app.listen(8080, function () {
     console.log('Example app listening on port 8080!')
 })
+
+module.exports = { geoUrl }
