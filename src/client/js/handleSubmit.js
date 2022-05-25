@@ -12,7 +12,9 @@ const result = document.getElementById('result')
 const destErr = document.getElementById('dest-err')
 const dateErr = document.getElementById('date-err')
 
-subBtn.addEventListener('click', submission)
+window.addEventListener('load', function() {
+    subBtn.addEventListener('click', submission)
+})
 
 function submission (event) {
     event.preventDefault()
